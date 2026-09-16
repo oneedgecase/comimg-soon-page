@@ -3,82 +3,216 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon</title>
+  <title>Official Offline Boutique | Coming Soon</title>
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #0f172a;
-      --bg-accent: #1e293b;
-      --card: rgba(15, 23, 42, 0.72);
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --border: rgba(148, 163, 184, 0.18);
+      color-scheme: light;
+      --bg: #f7f1e3;
+      --bg-accent: #ead7ab;
+      --card: rgba(255, 250, 239, 0.88);
+      --text: #3d2b1f;
+      --muted: #7b6148;
+      --accent: #d99b2b;
+      --accent-deep: #b97816;
+      --border: rgba(121, 88, 39, 0.16);
+      --shadow: rgba(89, 58, 21, 0.18);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    body {
+    body,
+    h1,
+    p {
       margin: 0;
+    }
+
+    body {
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top, rgba(56, 189, 248, 0.22), transparent 35%),
+        radial-gradient(circle at top left, rgba(255, 220, 122, 0.62), transparent 28%),
+        radial-gradient(circle at right, rgba(217, 155, 43, 0.18), transparent 32%),
         linear-gradient(135deg, var(--bg), var(--bg-accent));
       color: var(--text);
     }
 
     .card {
-      width: min(100%, 680px);
-      padding: 56px 32px;
+      width: min(100%, 1100px);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+      padding: 36px;
       border: 1px solid var(--border);
-      border-radius: 24px;
-      text-align: center;
+      border-radius: 32px;
       background: var(--card);
       backdrop-filter: blur(16px);
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+      box-shadow: 0 24px 60px var(--shadow);
     }
 
     .badge {
       display: inline-block;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       padding: 8px 14px;
       border-radius: 999px;
       font-size: 0.85rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent);
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.18);
+      background: rgba(217, 155, 43, 0.12);
+      border: 1px solid rgba(185, 120, 22, 0.18);
     }
 
     h1 {
-      margin: 0;
       font-size: clamp(2.5rem, 6vw, 4.5rem);
-      line-height: 1;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
     }
 
     p {
-      margin: 20px auto 0;
-      max-width: 520px;
       font-size: 1.05rem;
       line-height: 1.7;
       color: var(--muted);
+    }
+
+    .content p {
+      max-width: 540px;
+      margin-top: 20px;
+    }
+
+    .highlight {
+      color: var(--accent-deep);
+    }
+
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .detail {
+      padding: 12px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.46);
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    .art {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cheese-glow {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 214, 92, 0.55), rgba(255, 214, 92, 0.08) 60%, transparent 70%);
+      filter: blur(6px);
+    }
+
+    .cheese {
+      position: relative;
+      width: min(100%, 360px);
+      aspect-ratio: 1 / 1;
+      clip-path: polygon(8% 88%, 94% 60%, 36% 10%);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 62% 38%, #fff0a5 0 10%, transparent 10.5%),
+        radial-gradient(circle at 48% 62%, #e7a622 0 8%, transparent 8.5%),
+        radial-gradient(circle at 72% 58%, #d88e13 0 6%, transparent 6.5%),
+        radial-gradient(circle at 33% 68%, #f9cd56 0 9%, transparent 9.5%),
+        linear-gradient(145deg, #ffe58a, #f2bf45 58%, #d69118);
+      box-shadow: 0 28px 55px rgba(120, 77, 12, 0.26);
+      transform: rotate(-10deg);
+    }
+
+    .cheese::before,
+    .cheese::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(196, 126, 13, 0.48);
+    }
+
+    .cheese::before {
+      width: 56px;
+      height: 56px;
+      top: 24%;
+      left: 40%;
+    }
+
+    .cheese::after {
+      width: 34px;
+      height: 34px;
+      top: 52%;
+      left: 58%;
+    }
+
+    @media (max-width: 820px) {
+      .card {
+        grid-template-columns: 1fr;
+        padding: 28px;
+      }
+
+      .content {
+        text-align: center;
+      }
+
+      .content p {
+        margin-inline: auto;
+      }
+
+      .details {
+        justify-content: center;
+      }
+
+      .art {
+        order: -1;
+        min-height: 300px;
+      }
     }
   </style>
 </head>
 <body>
   <main class="card">
-    <div class="badge">Launching soon</div>
-    <h1>Coming Soon</h1>
-    <p>
-      We're putting the finishing touches on something great. Check back soon to see what’s coming.
-    </p>
+    <section class="content">
+      <div class="badge">Official offline boutique</div>
+      <h1>
+        The cheese takes center stage.<br />
+        <span class="highlight">Coming soon.</span>
+      </h1>
+      <p>
+        Our boutique is preparing a warm, sensory world built around exceptional cheese — rich textures,
+        golden wheels, and a slower in-person tasting experience worth waiting for.
+      </p>
+      <p>
+        Soon you’ll step into a dedicated offline space where artisan cheese is the main character and every
+        detail is curated for flavor lovers.
+      </p>
+      <div class="details">
+        <div class="detail">Boutique opening soon</div>
+        <div class="detail">Curated cheese selection</div>
+        <div class="detail">In-store tasting atmosphere</div>
+      </div>
+    </section>
+
+    <section class="art" aria-hidden="true">
+      <div class="cheese-glow"></div>
+      <div class="cheese"></div>
+    </section>
   </main>
 </body>
 </html>
